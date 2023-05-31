@@ -1,6 +1,6 @@
 {
   "name": "@webeleon/nestjs-openai",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An openAi API client for nestjs",
   "author": "webeleon<julien@webeleon.dev>",
   "private": false,
