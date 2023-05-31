@@ -70,7 +70,8 @@
       "text",
       "lcov"
     ],
-    "coverageDirectory": "../coverage"
+    "coverageDirectory": "./coverage",
+    "collectCoverage": true
   },
   "lint-staged": {
     "*.ts": "prettier --write"
