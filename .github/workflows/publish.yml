@@ -32,10 +32,8 @@ jobs:
           rm -rf tests
           rm -rf .github
           rm -rf .husky
-          rm .eslintignore
-          rm .eslintrc
+          rm .eslintrc.js
           rm .nvmrc
-          rm .prettierignore
           rm .prettierrc
           rm commitlint.config.js
           rm renovate.json
