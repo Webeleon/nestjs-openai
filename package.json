@@ -65,6 +65,11 @@
     "collectCoverageFrom": [
       "./src/**/*.ts"
     ],
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ],
     "coverageDirectory": "../coverage"
   },
   "lint-staged": {
