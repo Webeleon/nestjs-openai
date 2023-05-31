@@ -1,0 +1,48 @@
+name: Publish
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+            node-version: 14
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+  publish-npm:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm run build
+      - name: clean
+        run: |
+          rm -rf src
+          rm -rf tests
+          rm -rf .github
+          rm -rf .husky
+          rm .eslintignore
+          rm .eslintrc
+          rm .nvmrc
+          rm .prettierignore
+          rm .prettierrc
+          rm commitlint.config.js
+          rm renovate.json
+          rm tsconfig.json
+          rm .gitignore
+          rm tsconfig.json
+          rm tsconfig.build.json
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
