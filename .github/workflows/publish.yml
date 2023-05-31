@@ -39,7 +39,6 @@ jobs:
           rm renovate.json
           rm tsconfig.json
           rm .gitignore
-          rm tsconfig.json
           rm tsconfig.build.json
       - run: npm publish --access public
         env:
