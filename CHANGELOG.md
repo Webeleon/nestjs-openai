@@ -1,3 +1,12 @@
+## [0.1.1](https://github.com/Webeleon/nestjs-openai/compare/v0.1.0...v0.1.1) (2023-06-01)
+
+
+### Bug Fixes
+
+* split messages and roles ([37ea63f](https://github.com/Webeleon/nestjs-openai/commit/37ea63f84406bd575e349a1b1a08ec479d1008cd))
+
+
+
 # [0.1.0](https://github.com/Webeleon/nestjs-openai/compare/v0.0.5...v0.1.0) (2023-06-01)
 
 
@@ -21,15 +30,6 @@
 
 
 ## [0.0.3](https://github.com/Webeleon/nestjs-openai/compare/v0.0.2...v0.0.3) (2023-05-31)
-
-
-
-## [0.0.2](https://github.com/Webeleon/nestjs-openai/compare/f2f4f2ad1153ba1935428fc5701915c71e909175...v0.0.2) (2023-05-31)
-
-
-### Features
-
-* implement chat method in the OpenAIService ([f2f4f2a](https://github.com/Webeleon/nestjs-openai/commit/f2f4f2ad1153ba1935428fc5701915c71e909175))
 
 
 
