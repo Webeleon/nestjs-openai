@@ -1,8 +1,4 @@
-export enum Role {
-  USER = 'user',
-  SYSTEM = 'system',
-  ASSISTANT = 'assistant',
-}
+import { Role } from './roles.enum';
 
 export class Message {
   role: Role;

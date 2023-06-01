@@ -1,8 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Message, Role } from './message.dto';
+import { Message } from './message.dto';
 import { OpenAiClientProvider } from './open-ai-client.provider';
 import { OpenAIApi } from 'openai';
 import { CONFIG_OPTIONS } from './options.interface';
+import { Role } from './roles.enum';
 
 @Injectable()
 export class OpenAIService {
