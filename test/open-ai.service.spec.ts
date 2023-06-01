@@ -1,7 +1,8 @@
 import { OpenAIService } from '../src';
 import { OpenAiClientProvider } from '../src/open-ai-client.provider';
 import { OpenAIApi } from 'openai';
-import { Role } from '../src/message.dto';
+import { Role } from '../src';
+import { Models } from '../src';
 
 describe('OpenAiService', () => {
   let openAiClientProviderMock: OpenAiClientProvider;
@@ -22,7 +23,10 @@ describe('OpenAiService', () => {
         }),
       } as unknown as OpenAIApi,
     } as OpenAiClientProvider;
-    service = new OpenAIService({ model: 'model' }, openAiClientProviderMock);
+    service = new OpenAIService(
+      { model: Models.GP3_5_TURBO },
+      openAiClientProviderMock,
+    );
   });
 
   describe('chat', () => {
@@ -39,7 +43,7 @@ describe('OpenAiService', () => {
       expect(
         openAiClientProviderMock.openai.createChatCompletion,
       ).toHaveBeenCalledWith({
-        model: 'model',
+        model: 'gpt-3.5-turbo',
         user: 'user-id',
         messages: [
           {
