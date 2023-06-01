@@ -5,6 +5,26 @@
   "author": "webeleon<julien@webeleon.dev>",
   "private": false,
   "license": "lgpl-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Webeleon/nestjs-openai"
+  },
+  "bugs": {
+    "url": "https://github.com/Webeleon/nestjs-openai/issues"
+  },
+  "contributors": [
+    {
+      "name": "Julien Prugne",
+      "email": "julien@webeleon.dev"
+    }
+  ],
+  "keywords": [
+    "webeleon",
+    "npm",
+    "typescript",
+    "NestJS",
+    "redis"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -16,7 +36,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "prepare": "husky install",
-    "release": "standard-version"
+    "release": "standard-version",
+    "generate-doc": "typedoc"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
@@ -50,6 +71,7 @@
     "ts-loader": "^9.2.3",
     "ts-node": "^10.0.0",
     "tsconfig-paths": "4.2.0",
+    "typedoc": "^0.24.7",
     "typescript": "^5.0.0"
   },
   "jest": {

@@ -40,6 +40,8 @@ jobs:
           rm tsconfig.json
           rm .gitignore
           rm tsconfig.build.json
+          rm typedoc.json
+          rm -rf docs
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
