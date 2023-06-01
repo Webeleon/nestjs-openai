@@ -23,7 +23,8 @@
     "npm",
     "typescript",
     "NestJS",
-    "redis"
+    "openAI",
+    "chatGPT"
   ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -37,7 +38,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "prepare": "husky install",
     "release": "standard-version",
-    "generate-doc": "typedoc"
+    "doc:generate": "typedoc"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
