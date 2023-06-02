@@ -10,13 +10,16 @@ jobs:
     steps:
       - name: debug
         run: |
-          echo $GITHUB_REG
+          echo ${{github.ref}}
           echo ${{github.base_ref}}
 
       - name: block-merge-on-main
         if: ${{github.base_ref == 'main'}}
         run: |
-          echo $GITHUB_REF
+          if [[ ${{github.ref}} == refs/heads/develop ]] || [[ ${{github.ref}} == refs/heads/hotfix* ]]; then
+            echo "::success Merge allowed"
+            exit 0
+          fi
           echo "::error Merge to main are only allowed from the develop branch or an hotfix branch"
           exit 1
 
@@ -24,7 +27,10 @@ jobs:
       - name: block-merge-on-prod
         if: ${{github.base_ref == 'prod'}}
         run: |
-          echo $GITHUB_REF
+          if [[ ${{github.ref}} == refs/heads/main ]] || [[ ${{github.ref}} == refs/heads/hotfix* ]]; then
+            echo "::success Merge allowed"
+            exit 0
+          fi
           echo "::error Merge to prod are only allowed from the develop branch or an hotfix branch"
           exit 1
 
