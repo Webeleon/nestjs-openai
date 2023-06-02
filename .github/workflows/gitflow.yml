@@ -8,6 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: debug
+        run: |
+          echo $GITHUB_REG
+          echo ${{github.base_ref}}
+
       - name: block-merge-on-main
         if: ${{github.base_ref == 'main'}}
         run: |
