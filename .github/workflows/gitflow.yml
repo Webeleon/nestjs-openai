@@ -1,0 +1,29 @@
+name: Gitflow
+
+on:
+  pull_request:
+
+jobs:
+  gitflow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: block-merge-on-main
+        if: ${{github.base_ref == 'main'}}
+        run: |
+          echo $GITHUB_REF
+          echo "::error Merge to main are only allowed from the develop branch or an hotfix branch"
+          exit 1
+
+
+      - name: block-merge-on-prod
+        if: ${{github.base_ref == 'prod'}}
+        run: |
+          echo $GITHUB_REF
+          echo "::error Merge to prod are only allowed from the develop branch or an hotfix branch"
+          exit 1
+
+      - name: success
+        run: |
+          echo "::success Merge allowed"
+          exit 0
