@@ -17,7 +17,7 @@ jobs:
       - name: block-merge-on-main
         if: ${{github.base_ref == 'main'}}
         run: |
-          if [[ ${{github.head_ref}} == refs/heads/develop ]] || [[ ${{github.head_ref}} == refs/heads/hotfix* ]]; then
+          if [[ ${{github.head_ref}} == develop ]] || [[ ${{github.head_ref}} == hotfix* ]]; then
             echo "::success Merge allowed"
             exit 0
           fi
@@ -28,7 +28,7 @@ jobs:
       - name: block-merge-on-prod
         if: ${{github.base_ref == 'prod'}}
         run: |
-          if [[ ${{github.head_ref}} == refs/heads/main ]] || [[ ${{github.head_ref}} == refs/heads/hotfix* ]]; then
+          if [[ ${{github.head_ref}} == main ]] || [[ ${{github.head_ref}} == hotfix* ]]; then
             echo "::success Merge allowed"
             exit 0
           fi
