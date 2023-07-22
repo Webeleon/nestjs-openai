@@ -8,8 +8,14 @@ import { OpenAiClientProvider } from './open-ai-client.provider';
 
 @Module({})
 export class OpenAiModule {
+  private static _module: OpenAiModule;
+
+  static forFeature() {
+    return OpenAiModule._module;
+  }
+
   static forRoot(options: OpenAIModuleOptions) {
-    return {
+    OpenAiModule._module = {
       module: OpenAiModule,
       providers: [
         {
@@ -21,10 +27,12 @@ export class OpenAiModule {
       ],
       exports: [OpenAIService],
     };
+
+    return OpenAiModule._module;
   }
 
   static forRootAsync(asyncOptions: OpenAIModuleAsyncOptions) {
-    return {
+    OpenAiModule._module = {
       module: OpenAiModule,
       imports: asyncOptions.imports,
       providers: [
@@ -38,5 +46,7 @@ export class OpenAiModule {
       ],
       exports: [OpenAIService],
     };
+
+    return OpenAiModule._module;
   }
 }

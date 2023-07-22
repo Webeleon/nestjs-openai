@@ -9,3 +9,35 @@
 $ npm install @webeleon/nestjs-openai
 ```
 
+## Usage
+
+In the root module
+
+```ts
+import { OpenAiModule, Models } from "@webeleon/nestjs-openai";
+
+@Module({
+  imports: [
+    OpenAiModule.forRoot({
+      apiKey: 'YOUR_OPEN_AI_API_KEY',
+      model: Models.GPT4
+    })
+  ],
+})
+class AppModule {}
+```
+
+
+In feature modules
+
+```ts
+import { OpenAiModule } from "@webeleon/nestjs-openai";
+
+@Module({
+  imports: [
+    OpenAiModule.forFeature()
+  ]
+})
+export class MyFeatureModule {}
+```
+
