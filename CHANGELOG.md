@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/Webeleon/nestjs-openai/compare/v0.1.2...v0.1.3) (2023-07-22)
+
+
+### Features
+
+* add a forFeature method in the OpenAiModule ([9aaeef6](https://github.com/Webeleon/nestjs-openai/commit/9aaeef6e24be87c452e48f197489ef12db2bbba6))
+
 ### [0.1.2](https://github.com/Webeleon/nestjs-openai/compare/v0.1.1...v0.1.2) (2023-06-26)
 
 ## [0.1.1](https://github.com/Webeleon/nestjs-openai/compare/v0.1.0...v0.1.1) (2023-06-01)
