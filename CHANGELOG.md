@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/Webeleon/nestjs-openai/compare/v0.1.4...v0.2.0) (2023-07-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* revert forFeature
+
+### Features
+
+* revert forFeature ([4789e06](https://github.com/Webeleon/nestjs-openai/commit/4789e066ae677c02c83d411e481d6b465d399a2b))
+
 ### [0.1.4](https://github.com/Webeleon/nestjs-openai/compare/v0.1.3...v0.1.4) (2023-07-23)
 
 
