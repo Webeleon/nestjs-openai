@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/Webeleon/nestjs-openai/compare/v0.1.3...v0.1.4) (2023-07-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency openai to v3.3.0 ([6674b9d](https://github.com/Webeleon/nestjs-openai/commit/6674b9d4ac5553f922c6413d6873b0b478732121))
+* **deps:** update nest monorepo to v10 ([f1b7c8d](https://github.com/Webeleon/nestjs-openai/commit/f1b7c8d229c5f167ea8020171a05dabe641e59e6))
+* use DynamicModule type instead of OpenAiModule ([8cc5376](https://github.com/Webeleon/nestjs-openai/commit/8cc53763c86ee7fec23452b739569ba8caafa69e))
+
 ### [0.1.3](https://github.com/Webeleon/nestjs-openai/compare/v0.1.2...v0.1.3) (2023-07-22)
 
 
