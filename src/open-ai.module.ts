@@ -1,4 +1,4 @@
-import { DynamicModule, Module } from '@nestjs/common';
+import { DynamicModule, Global, Module, OnModuleInit } from '@nestjs/common';
 import { OpenAIService } from './open-ai.service';
 import {
   OpenAIModuleAsyncOptions,
@@ -6,16 +6,11 @@ import {
 } from './options.interface';
 import { OpenAiClientProvider } from './open-ai-client.provider';
 
+@Global()
 @Module({})
 export class OpenAiModule {
-  private static _module: DynamicModule;
-
-  static forFeature() {
-    return OpenAiModule._module;
-  }
-
-  static forRoot(options: OpenAIModuleOptions) {
-    OpenAiModule._module = {
+  static forRoot(options: OpenAIModuleOptions): DynamicModule {
+    return {
       module: OpenAiModule,
       providers: [
         {
@@ -27,12 +22,10 @@ export class OpenAiModule {
       ],
       exports: [OpenAIService],
     };
-
-    return OpenAiModule._module;
   }
 
-  static forRootAsync(asyncOptions: OpenAIModuleAsyncOptions) {
-    OpenAiModule._module = {
+  static forRootAsync(asyncOptions: OpenAIModuleAsyncOptions): DynamicModule {
+    return {
       module: OpenAiModule,
       imports: asyncOptions.imports,
       providers: [
@@ -46,7 +39,5 @@ export class OpenAiModule {
       ],
       exports: [OpenAIService],
     };
-
-    return OpenAiModule._module;
   }
 }
