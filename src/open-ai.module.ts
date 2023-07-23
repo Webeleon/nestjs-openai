@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { DynamicModule, Module } from '@nestjs/common';
 import { OpenAIService } from './open-ai.service';
 import {
   OpenAIModuleAsyncOptions,
@@ -8,7 +8,7 @@ import { OpenAiClientProvider } from './open-ai-client.provider';
 
 @Module({})
 export class OpenAiModule {
-  private static _module: OpenAiModule;
+  private static _module: DynamicModule;
 
   static forFeature() {
     return OpenAiModule._module;
