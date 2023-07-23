@@ -28,16 +28,5 @@ class AppModule {}
 ```
 
 
-In feature modules
 
-```ts
-import { OpenAiModule } from "@webeleon/nestjs-openai";
-
-@Module({
-  imports: [
-    OpenAiModule.forFeature()
-  ]
-})
-export class MyFeatureModule {}
-```
 
