@@ -1,11 +1,11 @@
 import { OpenAIService } from '../src';
-import { OpenAiClientProvider } from '../src/open-ai-client.provider';
+import { OpenAIClientProvider } from '../src/open-ai-client.provider';
 import { OpenAIApi } from 'openai';
 import { Role } from '../src';
 import { Models } from '../src';
 
 describe('OpenAiService', () => {
-  let openAiClientProviderMock: OpenAiClientProvider;
+  let openAiClientProviderMock: OpenAIClientProvider;
   let service: OpenAIService;
   beforeEach(() => {
     openAiClientProviderMock = {
@@ -31,7 +31,7 @@ describe('OpenAiService', () => {
           },
         }),
       } as unknown as OpenAIApi,
-    } as OpenAiClientProvider;
+    } as OpenAIClientProvider;
     service = new OpenAIService(
       { model: Models.GP3_5_TURBO },
       openAiClientProviderMock,

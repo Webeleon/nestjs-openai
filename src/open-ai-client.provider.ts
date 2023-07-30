@@ -2,7 +2,7 @@ import { Configuration, OpenAIApi } from 'openai';
 import { Inject } from '@nestjs/common';
 import { CONFIG_OPTIONS, OpenAIModuleOptions } from './options.interface';
 
-export class OpenAiClientProvider {
+export class OpenAIClientProvider {
   public openai: OpenAIApi;
 
   constructor(

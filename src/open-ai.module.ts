@@ -4,20 +4,20 @@ import {
   OpenAIModuleAsyncOptions,
   OpenAIModuleOptions,
 } from './options.interface';
-import { OpenAiClientProvider } from './open-ai-client.provider';
+import { OpenAIClientProvider } from './open-ai-client.provider';
 
 @Global()
 @Module({})
-export class OpenAiModule {
+export class OpenAIModule {
   static forRoot(options: OpenAIModuleOptions): DynamicModule {
     return {
-      module: OpenAiModule,
+      module: OpenAIModule,
       providers: [
         {
           provide: 'CONFIG_OPTIONS',
           useValue: options,
         },
-        OpenAiClientProvider,
+        OpenAIClientProvider,
         OpenAIService,
       ],
       exports: [OpenAIService],
@@ -26,7 +26,7 @@ export class OpenAiModule {
 
   static forRootAsync(asyncOptions: OpenAIModuleAsyncOptions): DynamicModule {
     return {
-      module: OpenAiModule,
+      module: OpenAIModule,
       imports: asyncOptions.imports,
       providers: [
         {
@@ -34,7 +34,7 @@ export class OpenAiModule {
           useFactory: asyncOptions.useFactory,
           inject: asyncOptions.inject || [],
         },
-        OpenAiClientProvider,
+        OpenAIClientProvider,
         OpenAIService,
       ],
       exports: [OpenAIService],

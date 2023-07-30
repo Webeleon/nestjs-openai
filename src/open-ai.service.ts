@@ -1,10 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Message } from './message.dto';
-import { OpenAiClientProvider } from './open-ai-client.provider';
+import { OpenAIClientProvider } from './open-ai-client.provider';
 import { OpenAIApi } from 'openai';
 import { CONFIG_OPTIONS } from './options.interface';
 import { Role } from './roles.enum';
-import * as buffer from 'buffer';
 import { GenerateImageInput } from './generate-image-input.interface';
 
 @Injectable()
@@ -12,7 +11,7 @@ export class OpenAIService {
   openai: OpenAIApi;
   constructor(
     @Inject(CONFIG_OPTIONS) private readonly config,
-    private readonly openaiProvider: OpenAiClientProvider,
+    private readonly openaiProvider: OpenAIClientProvider,
   ) {
     this.openai = openaiProvider.openai;
   }

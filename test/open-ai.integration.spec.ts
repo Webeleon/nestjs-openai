@@ -1,11 +1,11 @@
-import { OpenAiModule, Models, OpenAIService } from '../src';
+import { OpenAIModule, Models, OpenAIService } from '../src';
 import { Test } from '@nestjs/testing';
 
 describe('OpenAiModule integration specs', () => {
   it('should work with forRoot', async () => {
     const module = await Test.createTestingModule({
       imports: [
-        OpenAiModule.forRoot({
+        OpenAIModule.forRoot({
           model: Models.GPT4,
           apiKey: 'FAKE',
         }),
@@ -19,7 +19,7 @@ describe('OpenAiModule integration specs', () => {
   it('should work with forRootAsync', async () => {
     const module = await Test.createTestingModule({
       imports: [
-        OpenAiModule.forRootAsync({
+        OpenAIModule.forRootAsync({
           useFactory: () => ({
             model: Models.GPT4,
             apiKey: 'FAKE',
