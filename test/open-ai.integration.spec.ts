@@ -1,4 +1,3 @@
-import { Module } from '@nestjs/common';
 import { OpenAiModule, Models, OpenAIService } from '../src';
 import { Test } from '@nestjs/testing';
 
