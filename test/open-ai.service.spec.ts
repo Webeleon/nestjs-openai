@@ -21,6 +21,15 @@ describe('OpenAiService', () => {
             ],
           },
         }),
+        createImage: jest.fn().mockResolvedValue({
+          data: {
+            data: [
+              {
+                url: 'https://webeleon.dev',
+              },
+            ],
+          },
+        }),
       } as unknown as OpenAIApi,
     } as OpenAiClientProvider;
     service = new OpenAIService(
@@ -58,6 +67,38 @@ describe('OpenAiService', () => {
           },
         ],
       });
+    });
+  });
+
+  describe('image generation', () => {
+    it('should generate image urls', async () => {
+      const images = await service.generateImageUrls({
+        prompt: 'a black cat',
+        user: 'webeleon',
+      });
+
+      expect(images[0]).toBe('https://webeleon.dev');
+    });
+
+    it('should generate image buffers', async () => {
+      openAiClientProviderMock.openai.createImage = jest
+        .fn()
+        .mockResolvedValue({
+          data: {
+            data: [
+              {
+                b64_json: Buffer.from('coco').toString('base64'),
+              },
+            ],
+          },
+        });
+
+      const images = await service.generateImagePngBuffers({
+        prompt: 'a black cat',
+        user: 'webeleon',
+      });
+
+      expect(images[0]).toBeInstanceOf(Buffer);
     });
   });
 });

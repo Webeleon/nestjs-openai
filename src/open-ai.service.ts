@@ -4,6 +4,8 @@ import { OpenAiClientProvider } from './open-ai-client.provider';
 import { OpenAIApi } from 'openai';
 import { CONFIG_OPTIONS } from './options.interface';
 import { Role } from './roles.enum';
+import * as buffer from 'buffer';
+import { GenerateImageInput } from './generate-image-input.interface';
 
 @Injectable()
 export class OpenAIService {
@@ -36,5 +38,39 @@ export class OpenAIService {
     });
 
     return completion.data.choices[0].message.content;
+  }
+
+  async generateImagePngBuffers({
+    prompt,
+    n = 1,
+    size = '512x512',
+    user,
+  }: GenerateImageInput): Promise<Buffer[]> {
+    const { data } = await this.openai.createImage({
+      prompt,
+      n,
+      size,
+      user,
+      response_format: 'b64_json',
+    });
+
+    return data.data.map((img) => Buffer.from(img.b64_json, 'base64'));
+  }
+
+  async generateImageUrls({
+    prompt,
+    n = 1,
+    size = '512x512',
+    user,
+  }: GenerateImageInput): Promise<string[]> {
+    const { data } = await this.openai.createImage({
+      prompt,
+      n,
+      size,
+      user,
+      response_format: 'url',
+    });
+
+    return data.data.map((img) => img.url);
   }
 }
