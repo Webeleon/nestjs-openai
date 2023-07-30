@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/Webeleon/nestjs-openai/compare/v0.2.0...v0.3.0) (2023-07-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename all openAi to openAI
+
+### Features
+
+* implement image generation methods ([9b6eafb](https://github.com/Webeleon/nestjs-openai/commit/9b6eafb32b76f06a61875ad57bb29fa387c23b05))
+
+
+### Bug Fixes
+
+* **deps:** update nest monorepo to v10.1.1 ([cd0672b](https://github.com/Webeleon/nestjs-openai/commit/cd0672b0022e4c7556e694e3a6403b9a1249202d))
+* **deps:** update nest monorepo to v10.1.2 ([d4ca3a2](https://github.com/Webeleon/nestjs-openai/commit/d4ca3a28d0d02933784890d39e06243d42aeb151))
+
+
+* rename all openAi to openAI ([7131d22](https://github.com/Webeleon/nestjs-openai/commit/7131d227d5c2dd5b94c951deb044c4e2ba1816bc))
+
 ## [0.2.0](https://github.com/Webeleon/nestjs-openai/compare/v0.1.4...v0.2.0) (2023-07-23)
 
 
