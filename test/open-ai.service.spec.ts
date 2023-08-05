@@ -40,20 +40,26 @@ describe('OpenAiService', () => {
 
   describe('chat', () => {
     it("should pass the message history and the configured model to the OpenAI API and return the bot's response", async () => {
-      const response = await service.chat('prompt', 'user-id', [
-        {
-          role: Role.USER,
-          content: 'message 1',
-          name: '123',
-        },
-      ]);
+      const response = await service.chat({
+        prompt: 'prompt',
+        userId: 'user-id',
+        history: [
+          {
+            role: Role.USER,
+            content: 'message 1',
+            name: '123',
+          },
+        ],
+      });
 
-      expect(response).toEqual('response');
+      expect(response).toEqual(['response']);
       expect(
         openAiClientProviderMock.openai.createChatCompletion,
       ).toHaveBeenCalledWith({
         model: 'gpt-3.5-turbo',
         user: 'user-id',
+        n: 1,
+        temperature: 1,
         messages: [
           {
             role: 'user',

@@ -16,12 +16,21 @@ export class OpenAIService {
     this.openai = openaiProvider.openai;
   }
 
-  async chat(
-    prompt: string,
-    userId: string,
-    history: Message[] = [],
-    role: Role = Role.USER,
-  ): Promise<string> {
+  async chat({
+    prompt,
+    userId,
+    history = [],
+    role = Role.USER,
+    temperature = 1,
+    numberOfCompletions = 1,
+  }: {
+    prompt: string;
+    userId: string;
+    history?: Message[];
+    role?: Role;
+    temperature?: number;
+    numberOfCompletions?: number;
+  }): Promise<string[]> {
     const messages: Message[] = [
       ...history,
       {
@@ -34,9 +43,11 @@ export class OpenAIService {
       model: this.config.model,
       user: userId,
       messages,
+      temperature,
+      n: numberOfCompletions,
     });
 
-    return completion.data.choices[0].message.content;
+    return completion.data.choices.map((choice) => choice.message.content);
   }
 
   async generateImagePngBuffers({
