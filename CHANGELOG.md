@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/Webeleon/nestjs-openai/compare/v0.3.0...v0.4.0) (2023-08-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* add temperature and number of completion to chat method
+
+### Features
+
+* add temperature and number of completion to chat method ([abc5470](https://github.com/Webeleon/nestjs-openai/commit/abc54700b1159234ca5d264b9e423a1d2698bdf0))
+
+
+### Bug Fixes
+
+* **deps:** update nest monorepo to v10.1.3 ([3b9bd1b](https://github.com/Webeleon/nestjs-openai/commit/3b9bd1baa43810321f20daca5e3687b032f28bcc))
+
 ## [0.3.0](https://github.com/Webeleon/nestjs-openai/compare/v0.2.0...v0.3.0) (2023-07-30)
 
 
