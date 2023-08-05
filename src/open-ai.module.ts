@@ -1,4 +1,4 @@
-import { DynamicModule, Global, Module, OnModuleInit } from '@nestjs/common';
+import { DynamicModule, Global, Module } from '@nestjs/common';
 import { OpenAIService } from './open-ai.service';
 import {
   OpenAIModuleAsyncOptions,
