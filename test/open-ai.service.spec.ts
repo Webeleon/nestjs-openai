@@ -1,6 +1,6 @@
 import { OpenAIService } from '../src';
 import { OpenAIClientProvider } from '../src/open-ai-client.provider';
-import { OpenAIApi } from 'openai';
+import OpenAIApi from 'openai';
 import { Role } from '../src';
 import { Models } from '../src';
 
@@ -10,26 +10,28 @@ describe('OpenAiService', () => {
   beforeEach(() => {
     openAiClientProviderMock = {
       openai: {
-        createChatCompletion: jest.fn().mockResolvedValueOnce({
-          data: {
-            choices: [
-              {
-                message: {
-                  content: 'response',
+        chat: {
+          completions: {
+            create: jest.fn().mockResolvedValueOnce({
+              choices: [
+                {
+                  message: {
+                    content: 'response',
+                  },
                 },
-              },
-            ],
+              ],
+            }),
           },
-        }),
-        createImage: jest.fn().mockResolvedValue({
-          data: {
+        },
+        images: {
+          generate: jest.fn().mockResolvedValue({
             data: [
               {
                 url: 'https://webeleon.dev',
               },
             ],
-          },
-        }),
+          }),
+        },
       } as unknown as OpenAIApi,
     } as OpenAIClientProvider;
     service = new OpenAIService(
@@ -54,7 +56,7 @@ describe('OpenAiService', () => {
 
       expect(response).toEqual(['response']);
       expect(
-        openAiClientProviderMock.openai.createChatCompletion,
+        openAiClientProviderMock.openai.chat.completions.create,
       ).toHaveBeenCalledWith({
         model: 'gpt-3.5-turbo',
         user: 'user-id',
@@ -87,16 +89,14 @@ describe('OpenAiService', () => {
     });
 
     it('should generate image buffers', async () => {
-      openAiClientProviderMock.openai.createImage = jest
+      openAiClientProviderMock.openai.images.generate = jest
         .fn()
         .mockResolvedValue({
-          data: {
-            data: [
-              {
-                b64_json: Buffer.from('coco').toString('base64'),
-              },
-            ],
-          },
+          data: [
+            {
+              b64_json: Buffer.from('coco').toString('base64'),
+            },
+          ],
         });
 
       const images = await service.generateImagePngBuffers({

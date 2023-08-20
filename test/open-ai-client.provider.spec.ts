@@ -1,5 +1,5 @@
 import { OpenAIClientProvider } from '../src/open-ai-client.provider';
-import { OpenAIApi } from 'openai';
+import OpenAIApi from 'openai';
 
 describe('OpenAiClientProvider', () => {
   it('should provide an instanced openai client', () => {

@@ -1,11 +1,11 @@
-name: Test and coverage
+name: Quality Analysis
 
 on:
   pull_request:
     branches: [main]
 
 jobs:
-  build:
+  build_lint_and_test:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,6 +16,9 @@ jobs:
 
       - name: build
         run: npm run build
+
+      - name: lint
+        run: npm run lint
 
       - name: test
         run: npm run test:cov
