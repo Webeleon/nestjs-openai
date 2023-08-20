@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Message } from './message.dto';
 import { OpenAIClientProvider } from './open-ai-client.provider';
-import { OpenAIApi } from 'openai';
+import OpenAIApi from 'openai';
 import { CONFIG_OPTIONS } from './options.interface';
 import { Role } from './roles.enum';
 import { GenerateImageInput } from './generate-image-input.interface';
@@ -39,7 +39,7 @@ export class OpenAIService {
         name: userId,
       },
     ];
-    const completion = await this.openai.createChatCompletion({
+    const completion = await this.openai.chat.completions.create({
       model: this.config.model,
       user: userId,
       messages,
@@ -47,7 +47,7 @@ export class OpenAIService {
       n: numberOfCompletions,
     });
 
-    return completion.data.choices.map((choice) => choice.message.content);
+    return completion.choices.map((choice) => choice.message.content);
   }
 
   async generateImagePngBuffers({
@@ -56,7 +56,7 @@ export class OpenAIService {
     size = '512x512',
     user,
   }: GenerateImageInput): Promise<Buffer[]> {
-    const { data } = await this.openai.createImage({
+    const { data } = await this.openai.images.generate({
       prompt,
       n,
       size,
@@ -64,7 +64,7 @@ export class OpenAIService {
       response_format: 'b64_json',
     });
 
-    return data.data.map((img) => Buffer.from(img.b64_json, 'base64'));
+    return data.map((img) => Buffer.from(img.b64_json, 'base64'));
   }
 
   async generateImageUrls({
@@ -73,7 +73,7 @@ export class OpenAIService {
     size = '512x512',
     user,
   }: GenerateImageInput): Promise<string[]> {
-    const { data } = await this.openai.createImage({
+    const { data } = await this.openai.images.generate({
       prompt,
       n,
       size,
@@ -81,6 +81,6 @@ export class OpenAIService {
       response_format: 'url',
     });
 
-    return data.data.map((img) => img.url);
+    return data.map((img) => img.url);
   }
 }
