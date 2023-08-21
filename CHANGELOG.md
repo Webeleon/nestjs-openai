@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.1](https://github.com/Webeleon/nestjs-openai/compare/v0.5.0...v0.5.1) (2023-08-21)
+
+
+### Features
+
+* add gpt 3.5 16k in the model list ([49feb3e](https://github.com/Webeleon/nestjs-openai/commit/49feb3e82383aec10f3b141404c0923311b3f9b1))
+
+
+### Bug Fixes
+
+* **deps:** update dependency openai to v4.0.1 ([85a3321](https://github.com/Webeleon/nestjs-openai/commit/85a332177974fffe4d2bc14e01f174f54e1783b2))
+
 ## [0.5.0](https://github.com/Webeleon/nestjs-openai/compare/v0.4.0...v0.5.0) (2023-08-20)
 
 
