@@ -14,11 +14,11 @@ $ npm install @webeleon/nestjs-openai
 In the root module
 
 ```ts
-import { OpenAiModule, Models } from "@webeleon/nestjs-openai";
+import { OpenAIModule, Models } from "@webeleon/nestjs-openai";
 
 @Module({
   imports: [
-    OpenAiModule.forRoot({
+    OpenAIModule.forRoot({
       apiKey: 'YOUR_OPEN_AI_API_KEY',
       model: Models.GPT4
     })
