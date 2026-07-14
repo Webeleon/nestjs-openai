@@ -47,7 +47,7 @@
     "openai": "^4.0.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.2.0",
-    "standard-version": "^9.5.0"
+    "commit-and-tag-version": "^9.5.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
